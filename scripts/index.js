@@ -79,12 +79,12 @@ function useUrl() {
     .then((res) => res.json())
     .then((meetingData) => {
       console.log(meetingData);
-      let h2 = document.createElement("h2");
-      let date = meetingData.suggestions[0].date;
-      h2.textContent = date;
-      header.appendChild(h2);
 
       for (let i = 0; i < meetingData.suggestions.length; i++) {
+        let h2 = document.createElement("h2");
+        let date = meetingData.suggestions[i].date;
+        h2.textContent = date;
+        list.appendChild(h2);
         for (
           let j = 0;
           j < meetingData.suggestions[i].start_times.length;
