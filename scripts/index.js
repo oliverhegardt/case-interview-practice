@@ -51,6 +51,7 @@ const meetinglengthFeild = document.getElementById("meetinglength");
 let url = "https://stark-castle-84894.herokuapp.com";
 
 let newUrl;
+let combinedUrl;
 
 /* publishBtn.addEventListener("click", useUrl); */
 
@@ -70,7 +71,28 @@ function buildUrl() {
 function useUrl() {
   combinedUrl = buildUrl();
   console.log(combinedUrl);
+  fetch(combinedUrl)
+    .then((res) => res.json())
+    .then((meetingData) => {
+      console.log(meetingData);
+    })
+    .catch((error) => {
+      console.log(error, "There has been an error");
+    });
 }
+
+/* function responeFromApi() {
+
+    const response = await fetch(combinedUrl);
+    if (!response.ok)
+      // or check for response.status
+      throw new Error(response.statusText);
+    let body = await response.json();
+    console.log(body);
+  }
+} catch (err) {
+  console.log(err);
+} */
 
 /* buildUrl().then(
   (function (value) {
