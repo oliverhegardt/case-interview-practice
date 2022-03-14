@@ -9,17 +9,29 @@
   </head>
   <body>
     <h1>Meeting planner</h1>
+    <form>
+      <label for="namesearch">Search for employee ID</label>
+      <input
+        type="text"
+        minlength="2"
+        maxlength="2"
+        placeholder="Ab"
+        name="namesearch"
+        id="namesearch"
+        required
+      />
+    </form>
     <iframe name="frame"></iframe>
     <form action="" metod="post" target="frame">
       <div>
-        <label for="employeeid1">Employee id 1</label>
+        <label for="employeeId1">Employee ID 1</label>
         <input
           type="text"
           minlength="39"
           maxlength="39"
           placeholder="123456789..."
-          name="employeeid1"
-          id="employeeid1"
+          name="employeeId1"
+          id="employeeId1"
           required
         />
       </div>
@@ -68,7 +80,9 @@
         max="18:00"
         required
       />
-      <label for="meetingLength">Choose the length of your meeting:</label>
+      <label for="meetingLength" id="meetingLengthLabel"
+        >Choose the length of your meeting:</label
+      >
 
       <select name="meetingLength" id="meetinglength" required>
         <option value="">--Please choose the length of your meeting--</option>
@@ -79,10 +93,10 @@
         <option value="150">150 min</option>
         <option value="180">180 min</option>
       </select>
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Check input data" />
     </form>
     <div class="blog-options">
-      <button onclick="useUrl()">search</button>
+      <button onclick="useUrl()">Search times</button>
     </div>
     <h2 id="headerDayOne"></h2>
     <ol id="start_times"></ol>

@@ -1,3 +1,10 @@
 iframe {
   display: none;
 }
+#meetinglength {
+  display: block;
+}
+
+#meetingLengthLabel {
+  display: block;
+}

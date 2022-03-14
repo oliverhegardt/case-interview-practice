@@ -34,7 +34,7 @@ timeInputs.forEach((input) => {
   });
 }); */
 
-const employeeidField1 = document.getElementById("employeeid1");
+const employeeIdField1 = document.getElementById("employeeId1");
 
 const employeeidField2 = document.getElementById("employeeid2");
 
@@ -57,7 +57,7 @@ let combinedUrl;
 
 function buildUrl() {
   {
-    newUrl = `/suggestions?employees=${employeeidField1.value}&employees=${employeeidField2.value}&fromDate=${fromdateFeild.value}&toDate=${todateFeild.value}&officehoursStart=${officehoursStartFeild.value}&officehoursEnd=${officehoursEndFeild.value}&meetingLength=${meetinglengthFeild.value}`;
+    newUrl = `/suggestions?employees=${employeeIdField1.value}&employees=${employeeidField2.value}&fromDate=${fromdateFeild.value}&toDate=${todateFeild.value}&officehoursStart=${officehoursStartFeild.value}&officehoursEnd=${officehoursEndFeild.value}&meetingLength=${meetinglengthFeild.value}`;
   }
 
   /* let combinedUrl = `${url}${newUrl}`; */
