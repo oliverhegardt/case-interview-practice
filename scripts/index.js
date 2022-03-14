@@ -84,11 +84,17 @@ function useUrl() {
       h2.textContent = date;
       header.appendChild(h2);
 
-      for (let i = 0; i < meetingData.suggestions[0].start_times.length; i++) {
-        let li = document.createElement("li");
-        let start_times = meetingData.suggestions[0].start_times[i];
-        li.textContent = start_times;
-        list.appendChild(li);
+      for (let i = 0; i < meetingData.suggestions.length; i++) {
+        for (
+          let j = 0;
+          j < meetingData.suggestions[i].start_times.length;
+          j++
+        ) {
+          let li = document.createElement("li");
+          let start_times = meetingData.suggestions[0].start_times[j];
+          li.textContent = start_times;
+          list.appendChild(li);
+        }
       }
     })
     .catch((error) => {
