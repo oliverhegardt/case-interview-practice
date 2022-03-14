@@ -68,6 +68,10 @@ function buildUrl() {
   /* createPreviewCard(); */
 }
 
+let header = document.getElementById("headerDayOne");
+
+let list = document.getElementById("start_times");
+
 function useUrl() {
   combinedUrl = buildUrl();
   console.log(combinedUrl);
@@ -75,6 +79,17 @@ function useUrl() {
     .then((res) => res.json())
     .then((meetingData) => {
       console.log(meetingData);
+      let h2 = document.createElement("h2");
+      let date = meetingData.suggestions[0].date;
+      h2.textContent = date;
+      header.appendChild(h2);
+
+      for (let i = 0; i < meetingData.suggestions[0].start_times.length; i++) {
+        let li = document.createElement("li");
+        let start_times = meetingData.suggestions[0].start_times[i];
+        li.textContent = start_times;
+        list.appendChild(li);
+      }
     })
     .catch((error) => {
       console.log(error, "There has been an error");
