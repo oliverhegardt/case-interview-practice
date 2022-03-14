@@ -91,7 +91,7 @@ function useUrl() {
           j++
         ) {
           let li = document.createElement("li");
-          let start_times = meetingData.suggestions[0].start_times[j];
+          let start_times = meetingData.suggestions[i].start_times[j];
           li.textContent = start_times;
           list.appendChild(li);
         }
