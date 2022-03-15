@@ -28,6 +28,13 @@ function useUrlNames() {
     .then((meetingData) => {
       console.log(meetingData);
 
+      if (!Array.isArray(meetingData.matches) || !meetingData.matches.length) {
+        document.getElementById(
+          "checkMatchesArray"
+        ).innerHTML = `No such name available, please change your search.`;
+        return;
+      }
+
       for (let i = 0; i < meetingData.matches.length; i++) {
         let li = document.createElement("li");
         let name = meetingData.matches[i].name;

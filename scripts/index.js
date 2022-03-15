@@ -80,6 +80,16 @@ function useUrl() {
     .then((meetingData) => {
       console.log(meetingData);
 
+      if (
+        !Array.isArray(meetingData.suggestions) ||
+        meetingData.suggestions.length < 2
+      ) {
+        document.getElementById(
+          "checkSuggestionsStart_timesArray"
+        ).innerHTML = `No times available, please change your search.`;
+        return;
+      }
+
       for (let i = 0; i < meetingData.suggestions.length; i++) {
         let h2 = document.createElement("h2");
         let date = meetingData.suggestions[i].date;
