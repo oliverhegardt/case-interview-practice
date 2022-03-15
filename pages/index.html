@@ -11,7 +11,8 @@
     <h1>Meeting planner</h1>
 
     <label for="nameSearch"
-      >Search for employee ID with the first two letters in your name</label
+      >Search for employee ID with the first two letters in your name, the first
+      letter needs to be a capital letter</label
     >
     <input
       type="text"
@@ -23,7 +24,8 @@
       required
     />
     <button onclick="useUrlNames()">Search names</button>
-    <div>
+    <div id="listNames"></div>
+    <div class="flex-container">
       <iframe name="frame"></iframe>
       <form action="" metod="post" target="frame">
         <div>
@@ -103,9 +105,10 @@
       <div>
         <button onclick="useUrl()">Search times</button>
       </div>
+
+      <h2 id="headerDayOne"></h2>
+      <ul id="start_times"></ul>
     </div>
-    <h2 id="headerDayOne"></h2>
-    <ul id="start_times"></ul>
     <script src="/scripts/index.js"></script>
     <script src="/scripts/namesearch.js"></script>
   </body>

@@ -18,6 +18,8 @@ function buildUrlNames() {
   /* createPreviewCard(); */
 }
 
+let listNames = document.getElementById("listNames");
+
 function useUrlNames() {
   combinedUrlNames = buildUrlNames();
   console.log(combinedUrlNames);
@@ -26,6 +28,13 @@ function useUrlNames() {
     .then((meetingData) => {
       console.log(meetingData);
 
+      for (let i = 0; i < meetingData.matches.length; i++) {
+        let li = document.createElement("li");
+        let name = meetingData.matches[i].name;
+        let id = meetingData.matches[i].id;
+        li.textContent = `${name}: ${id}`;
+        listNames.appendChild(li);
+      }
       /* for (let i = 0; i < meetingData.suggestions.length; i++) {
         let h2 = document.createElement("h2");
         let date = meetingData.suggestions[i].date;
