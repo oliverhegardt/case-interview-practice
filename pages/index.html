@@ -27,8 +27,6 @@
         <label for="employeeId1">Employee ID 1</label>
         <input
           type="text"
-          minlength="39"
-          maxlength="39"
           placeholder="123456789..."
           name="employeeId1"
           id="employeeId1"
@@ -36,14 +34,12 @@
         />
       </div>
       <div>
-        <label for="employeeid2">Employee id 2</label>
+        <label for="employeeId2">Employee id 2</label>
         <input
           type="text"
-          minlength="39"
-          maxlength="39"
           placeholder="123456789..."
-          name="employeeid2"
-          id="employeeid2"
+          name="employeeId2"
+          id="employeeId2"
         />
       </div>
       <div>
@@ -51,20 +47,20 @@
         <input
           type="date"
           name="date"
-          id="fromdate"
+          id="fromDate"
           min="2015-01-01"
           required
         />
       </div>
       <div>
         <label for="date">Latest meeting date </label>
-        <input type="date" name="date" id="todate" min="2015-01-01" required />
+        <input type="date" name="date" id="toDate" min="2015-01-01" required />
       </div>
       <label for="apptStart">Office hours start</label>
       <input
         type="time"
         class="start"
-        id="officehoursStart"
+        id="officeHoursStart"
         name="apptStart"
         min="08:00"
         max="17:30"
@@ -74,7 +70,7 @@
       <input
         type="time"
         class="end"
-        id="officehoursEnd"
+        id="officeHoursEnd"
         name="apptEnd"
         min="08:00"
         max="18:00"
@@ -84,7 +80,7 @@
         >Choose the length of your meeting:</label
       >
 
-      <select name="meetingLength" id="meetinglength" required>
+      <select name="meetingLength" id="meetingLength" required>
         <option value="">--Please choose the length of your meeting--</option>
         <option value="30">30 min</option>
         <option value="60">60 min</option>
@@ -99,7 +95,7 @@
       <button onclick="useUrl()">Search times</button>
     </div>
     <h2 id="headerDayOne"></h2>
-    <ol id="start_times"></ol>
+    <ul id="start_times"></ul>
     <script src="/scripts/index.js"></script>
   </body>
 </html>

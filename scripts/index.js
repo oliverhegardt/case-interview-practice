@@ -6,7 +6,7 @@ const roundFunc = (e) => {
   if (x[1] > 15 && x[1] < 45) {
     x[1] = "30";
   } else if (x[1] > 44 && x[1] < 60) {
-    x[0] = x[0] < 10 ? "0" + (parseInt(x[0]) + 1) : parseInt(x[0]) + 1;
+    x[0] = x[0] < 9 ? "0" + (parseInt(x[0]) + 1) : parseInt(x[0]) + 1;
     x[1] = "00";
   } else {
     x[1] = "00";
@@ -36,17 +36,17 @@ timeInputs.forEach((input) => {
 
 const employeeIdField1 = document.getElementById("employeeId1");
 
-const employeeidField2 = document.getElementById("employeeid2");
+const employeeIdField2 = document.getElementById("employeeId2");
 
-const fromdateFeild = document.getElementById("fromdate");
+const fromDateFeild = document.getElementById("fromDate");
 
-const todateFeild = document.getElementById("todate");
+const toDateFeild = document.getElementById("toDate");
 
-const officehoursStartFeild = document.getElementById("officehoursStart");
+const officeHoursStartFeild = document.getElementById("officeHoursStart");
 
-const officehoursEndFeild = document.getElementById("officehoursEnd");
+const officeHoursEndFeild = document.getElementById("officeHoursEnd");
 
-const meetinglengthFeild = document.getElementById("meetinglength");
+const meetingLengthFeild = document.getElementById("meetingLength");
 
 let url = "https://stark-castle-84894.herokuapp.com";
 
@@ -57,7 +57,7 @@ let combinedUrl;
 
 function buildUrl() {
   {
-    newUrl = `/suggestions?employees=${employeeIdField1.value}&employees=${employeeidField2.value}&fromDate=${fromdateFeild.value}&toDate=${todateFeild.value}&officehoursStart=${officehoursStartFeild.value}&officehoursEnd=${officehoursEndFeild.value}&meetingLength=${meetinglengthFeild.value}`;
+    newUrl = `/suggestions?employees=${employeeIdField1.value}&employees=${employeeIdField2.value}&fromDate=${fromDateFeild.value}&toDate=${toDateFeild.value}&officehoursStart=${officeHoursStartFeild.value}&officehoursEnd=${officeHoursEndFeild.value}&meetingLength=${meetingLengthFeild.value}`;
   }
 
   /* let combinedUrl = `${url}${newUrl}`; */

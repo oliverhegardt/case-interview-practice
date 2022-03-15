@@ -1,10 +1,14 @@
 iframe {
   display: none;
 }
-#meetinglength {
+#meetingLength {
   display: block;
 }
 
 #meetingLengthLabel {
   display: block;
+}
+
+ul {
+  list-style-type: none;
 }
