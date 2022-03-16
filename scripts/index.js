@@ -14,25 +14,9 @@ const roundFunc = (e) => {
   e.target.value = x.join(":");
 };
 
-/* const correctTimeFunc = (e) => {
-  let x = e.target.value.split(":");
-  if (x[0] > 17) {
-    x[0] = "17";
-  } else if ([0] < 08) {
-    x[0] = "08";
-  }
-  e.target.value = x.join(":");
-}; */
-
 timeInputs.forEach((input) => {
   input.addEventListener("change", roundFunc);
-}); /* 
-timeInputs.forEach((input) => {
-  input.addEventListener("change", () => {
-    roundFunc();
-    correctTimeFunc();
-  });
-}); */
+});
 
 const employeeIdField1 = document.getElementById("employeeId1");
 
@@ -53,19 +37,13 @@ let url = "https://stark-castle-84894.herokuapp.com";
 let newUrl;
 let combinedUrl;
 
-/* publishBtn.addEventListener("click", useUrl); */
-
 function buildUrl() {
   {
     newUrl = `/suggestions?employees=${employeeIdField1.value}&employees=${employeeIdField2.value}&fromDate=${fromDateFeild.value}&toDate=${toDateFeild.value}&officehoursStart=${officeHoursStartFeild.value}&officehoursEnd=${officeHoursEndFeild.value}&meetingLength=${meetingLengthFeild.value}`;
   }
 
-  /* let combinedUrl = `${url}${newUrl}`; */
-
   console.log(`${url}${newUrl}`);
   return `${url}${newUrl}`;
-
-  /* createPreviewCard(); */
 }
 
 let header = document.getElementById("headerDayOne");
@@ -82,7 +60,7 @@ function useUrl() {
 
       if (
         !Array.isArray(meetingData.suggestions) ||
-        meetingData.suggestions.length < 2
+        !meetingData.suggestions.length
       ) {
         document.getElementById(
           "checkSuggestionsStart_timesArray"
@@ -111,50 +89,3 @@ function useUrl() {
       console.log(error, "There has been an error");
     });
 }
-
-/* function responeFromApi() {
-
-    const response = await fetch(combinedUrl);
-    if (!response.ok)
-      // or check for response.status
-      throw new Error(response.statusText);
-    let body = await response.json();
-    console.log(body);
-  }
-} catch (err) {
-  console.log(err);
-} */
-
-/* buildUrl().then(
-  (function (value) {
-    fetchNames(value);
-  })(function (error) {
-    fetchNames(error);
-  })
-);
-
-function fetchNames(value) {
-  fetch(value)
-    .then((res) => res.json())
-    .then((meetingsdata) => console.log(meetingsdata));
-} */
-
-/*   */
-/* function createPreviewCard() {
-  let wrapper = document.getElementById("meetingProposals");
-  let i = 
-} */
-
-/* .then((res) => res.json())
-  .then((meetingsdata) => console.log(meetingsdata))
-
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    }
-  })
-
-  .catch((error) => {
-    console.error("There has been a problem with your fetch operation:", error);
-  });
-*/

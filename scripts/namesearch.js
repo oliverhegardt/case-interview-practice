@@ -10,12 +10,8 @@ function buildUrlNames() {
     newUrlNames = `/employees?q=${nameSearchFeild.value}`;
   }
 
-  /* let combinedUrl = `${url}${newUrl}`; */
-
   console.log(`${urlNames}${newUrlNames}`);
   return `${urlNames}${newUrlNames}`;
-
-  /* createPreviewCard(); */
 }
 
 let listNames = document.getElementById("listNames");
@@ -42,22 +38,6 @@ function useUrlNames() {
         li.textContent = `${name}: ${id}`;
         listNames.appendChild(li);
       }
-      /* for (let i = 0; i < meetingData.suggestions.length; i++) {
-        let h2 = document.createElement("h2");
-        let date = meetingData.suggestions[i].date;
-        h2.textContent = date;
-        list.appendChild(h2);
-        for (
-          let j = 0;
-          j < meetingData.suggestions[i].start_times.length;
-          j++
-        ) {
-          let li = document.createElement("li");
-          let start_times = meetingData.suggestions[i].start_times[j];
-          li.textContent = start_times;
-          list.appendChild(li);
-        }
-      } */
     })
     .catch((error) => {
       console.log(error, "There has been an error");

@@ -9,6 +9,10 @@ iframe {
   display: block;
 }
 
+#nameSearch {
+  display: block;
+}
+
 ul {
   list-style-type: none;
 }
