@@ -32,10 +32,9 @@ const officeHoursEndFeild = document.getElementById("officeHoursEnd");
 
 const meetingLengthFeild = document.getElementById("meetingLength");
 
-let url = "https://stark-castle-84894.herokuapp.com";
+const url = "https://stark-castle-84894.herokuapp.com";
 
 let newUrl;
-let combinedUrl;
 
 function buildUrl() {
   {
@@ -46,31 +45,31 @@ function buildUrl() {
   return `${url}${newUrl}`;
 }
 
-let header = document.getElementById("headerDayOne");
+const header = document.getElementById("headerDayOne");
 
-let list = document.getElementById("start_times");
+const list = document.getElementById("start_times");
 
 function useUrl() {
-  combinedUrl = buildUrl();
+  const combinedUrl = buildUrl();
   console.log(combinedUrl);
   fetch(combinedUrl)
     .then((res) => res.json())
     .then((meetingData) => {
       console.log(meetingData);
 
-      if (
-        !Array.isArray(meetingData.suggestions) ||
-        !meetingData.suggestions.length
-      ) {
-        document.getElementById(
-          "checkSuggestionsStart_timesArray"
-        ).innerHTML = `No times available, please change your search.`;
-        return;
-      }
-
       for (let i = 0; i < meetingData.suggestions.length; i++) {
-        let h2 = document.createElement("h2");
-        let date = meetingData.suggestions[i].date;
+        if (
+          !Array.isArray(meetingData.suggestions) ||
+          !meetingData.suggestions[i].start_times.length
+        ) {
+          document.getElementById(
+            "checkSuggestionsStart_timesArray"
+          ).innerHTML = `No times available, please change your search.`;
+          return;
+        }
+
+        const h2 = document.createElement("h2");
+        const date = meetingData.suggestions[i].date;
         h2.textContent = date;
         list.appendChild(h2);
         for (

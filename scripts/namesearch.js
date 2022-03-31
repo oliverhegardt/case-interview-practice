@@ -1,9 +1,8 @@
 const nameSearchFeild = document.getElementById("nameSearch");
 
-let urlNames = "https://stark-castle-84894.herokuapp.com";
+const urlNames = "https://stark-castle-84894.herokuapp.com";
 
 let newUrlNames;
-let combinedUrlNames;
 
 function buildUrlNames() {
   {
@@ -14,10 +13,10 @@ function buildUrlNames() {
   return `${urlNames}${newUrlNames}`;
 }
 
-let listNames = document.getElementById("listNames");
+const listNames = document.getElementById("listNames");
 
 function useUrlNames() {
-  combinedUrlNames = buildUrlNames();
+  const combinedUrlNames = buildUrlNames();
   console.log(combinedUrlNames);
   fetch(combinedUrlNames)
     .then((res) => res.json())
@@ -32,9 +31,9 @@ function useUrlNames() {
       }
 
       for (let i = 0; i < meetingData.matches.length; i++) {
-        let li = document.createElement("li");
-        let name = meetingData.matches[i].name;
-        let id = meetingData.matches[i].id;
+        const li = document.createElement("li");
+        const name = meetingData.matches[i].name;
+        const id = meetingData.matches[i].id;
         li.textContent = `${name}: ${id}`;
         listNames.appendChild(li);
       }
