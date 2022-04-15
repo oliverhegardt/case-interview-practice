@@ -1,22 +1,34 @@
-const timeInputs = document.querySelectorAll(".start, .end");
+let start = document.querySelector(".start");
+let end = document.querySelector(".end");
 
-const roundFunc = (e) => {
-  let x = e.target.value.split(":");
+/*
+  01:00 .. 01:14 -> 01:00
+  01:15 .. 01:44 -> 01:30
+  01:45 .. 01:59 -> 02:00
+*/
+function roundTime(event) {
+  let time = event.target.value.split(":");
+  let hours = parseInt(time[0]);
+  let mins = parseInt(time[1]);
 
-  if (x[1] > 15 && x[1] < 45) {
-    x[1] = "30";
-  } else if (x[1] > 44 && x[1] < 60) {
-    x[0] = x[0] < 9 ? "0" + (parseInt(x[0]) + 1) : parseInt(x[0]) + 1;
-    x[1] = "00";
-  } else {
-    x[1] = "00";
+  if (mins < 15) {
+    mins = 0;
+  } else if (mins < 45) {
+    mins = 30;
+  } else if (mins < 60) {
+    mins = 0;
+    hours = (hours + 1) % 24;
   }
-  e.target.value = x.join(":");
-};
 
-timeInputs.forEach((input) => {
-  input.addEventListener("change", roundFunc);
-});
+  let rounded = [
+    hours.toString().padStart(2, "0"),
+    mins.toString().padStart(2, "0"),
+  ].join(":");
+
+  event.target.value = rounded;
+}
+start.addEventListener("change", roundTime);
+end.addEventListener("change", roundTime);
 
 const employeeIdField1 = document.getElementById("employeeId1");
 
