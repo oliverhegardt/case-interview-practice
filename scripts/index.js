@@ -44,22 +44,16 @@ const officeHoursEndFeild = document.getElementById("officeHoursEnd");
 
 const meetingLengthFeild = document.getElementById("meetingLength");
 
-const url = "https://stark-castle-84894.herokuapp.com";
-
-let newUrl;
-
 function buildUrl() {
-  {
-    newUrl = `/suggestions?employees=${employeeIdField1.value}&employees=${employeeIdField2.value}&fromDate=${fromDateFeild.value}&toDate=${toDateFeild.value}&officehoursStart=${officeHoursStartFeild.value}&officehoursEnd=${officeHoursEndFeild.value}&meetingLength=${meetingLengthFeild.value}`;
-  }
+  const url = "https://stark-castle-84894.herokuapp.com";
+
+  const newUrl = `/suggestions?employees=${employeeIdField1.value}&employees=${employeeIdField2.value}&fromDate=${fromDateFeild.value}&toDate=${toDateFeild.value}&officehoursStart=${officeHoursStartFeild.value}&officehoursEnd=${officeHoursEndFeild.value}&meetingLength=${meetingLengthFeild.value}`;
 
   console.log(`${url}${newUrl}`);
   return `${url}${newUrl}`;
 }
 
-const header = document.getElementById("headerDayOne");
-
-const list = document.getElementById("start_times");
+/* const header = document.getElementById("headerDayOne"); */
 
 async function useUrl() {
   const combinedUrl = buildUrl();
@@ -81,6 +75,7 @@ async function useUrl() {
         return;
       }
 
+      const list = document.getElementById("start_times");
       const h2 = document.createElement("h2");
       const date = meetingData.suggestions[i].date;
       h2.textContent = date;
@@ -89,7 +84,7 @@ async function useUrl() {
         let li = document.createElement("li");
         let start_times = meetingData.suggestions[i].start_times[j];
         li.textContent = start_times;
-        list.appendChild(li);
+        h2.appendChild(li);
       }
     }
   } catch (error) {
