@@ -8,107 +8,116 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <h1>Meeting planner</h1>
-
-    <label for="nameSearch"
-      >Search for employee ID with the first two letters in your name, the first
-      letter needs to be a capital letter.</label
-    >
-    <input
-      type="text"
-      minlength="2"
-      maxlength="2"
-      placeholder="Ab"
-      name="nameSearch"
-      id="nameSearch"
-      required
-    />
-    <button id="nameSearch" onclick="useUrlNames()">Search names</button>
-    <div id="checkMatchesArray"></div>
-    <div id="listNames"></div>
-   
-      <iframe name="frame"></iframe>
-      <form action="" metod="post" target="frame">
-        <div>
-          <label for="employeeId1">Employee ID 1</label>
+    <div class="container">
+      <h1 class="title">Meeting planner</h1>
+      <div class="content">
+        <div class="input-box">
+          <label class="details" for="nameSearch"
+            >Search for employee ID with the first two letters in your name, the
+            first letter needs to be a capital letter.</label
+          >
           <input
             type="text"
-            placeholder="123456789..."
-            name="employeeId1"
-            id="employeeId1"
+            minlength="2"
+            maxlength="2"
+            placeholder="Ab"
+            name="nameSearch"
+            id="nameSearch"
             required
           />
         </div>
-        <div>
-          <label for="employeeId2">Employee ID 2</label>
-          <input
-            type="text"
-            placeholder="123456789..."
-            name="employeeId2"
-            id="employeeId2"
-          />
-        </div>
-        <div>
-          <label for="date">Earliest meeting date </label>
-          <input
-            type="date"
-            name="date"
-            id="fromDate"
-            min="2015-01-01"
-            required
-          />
-        </div>
-        <div>
-          <label for="date">Latest meeting date </label>
-          <input
-            type="date"
-            name="date"
-            id="toDate"
-            min="2015-01-01"
-            required
-          />
-        </div>
-        <label for="apptStart">Office hours start</label>
-        <input
-          type="time"
-          class="start"
-          id="officeHoursStart"
-          name="apptStart"
-          min="08:00"
-          max="17:30"
-          required
-        />
-        <label for="apptEnd">Office hours end</label>
-        <input
-          type="time"
-          class="end"
-          id="officeHoursEnd"
-          name="apptEnd"
-          min="08:00"
-          max="18:00"
-          required
-        />
-        <label for="meetingLength" id="meetingLengthLabel"
-          >Choose the length of your meeting:</label
-        >
+        <button id="nameSearch" onclick="useUrlNames()">Search names</button>
+        <div id="checkMatchesArray"></div>
+        <div id="listNames"></div>
 
-        <select name="meetingLength" id="meetingLength" required>
-          <option value="">--Please choose the length of your meeting--</option>
-          <option value="30">30 min</option>
-          <option value="60">60 min</option>
-          <option value="90">90 min</option>
-          <option value="120">120 min</option>
-          <option value="150">150 min</option>
-          <option value="180">180 min</option>
-        </select>
-        <input onclick="useUrl()" type="submit" value="Search times" />
-      </form>
-      
-      <div id="checkSuggestionsStart_timesArray"></div>
+        <iframe name="frame"></iframe>
+        <form action="" metod="post" target="frame">
+          <div class="container-input">
+            <div>
+              <label for="employeeId1" class="details">Employee ID 1</label>
+              <input
+                type="text"
+                placeholder="123456789..."
+                name="employeeId1"
+                id="employeeId1"
+                required
+              />
+            </div>
+            <div>
+              <label for="employeeId2" class="details">Employee ID 2</label>
+              <input
+                type="text"
+                placeholder="123456789..."
+                name="employeeId2"
+                id="employeeId2"
+              />
+            </div>
+            <div>
+              <label for="date" class="details">Earliest meeting date </label>
+              <input
+                type="date"
+                name="date"
+                id="fromDate"
+                min="2015-01-01"
+                required
+              />
+            </div>
+            <div>
+              <label for="date" class="details">Latest meeting date </label>
+              <input
+                type="date"
+                name="date"
+                id="toDate"
+                min="2015-01-01"
+                required
+              />
+            </div>
+            <label for="apptStart" class="details">Office hours start</label>
+            <input
+              type="time"
+              class="start"
+              id="officeHoursStart"
+              name="apptStart"
+              min="08:00"
+              max="17:30"
+              required
+            />
+            <label for="apptEnd" class="details">Office hours end</label>
+            <input
+              type="time"
+              class="end"
+              id="officeHoursEnd"
+              name="apptEnd"
+              min="08:00"
+              max="18:00"
+              required
+            />
+          </div>
+          <label for="meetingLength" id="meetingLengthLabel" class="details"
+            >Choose the length of your meeting:</label
+          >
 
-      <h2 id="headerDayOne"></h2>
-      <ul id="start_times"></ul>
+          <select name="meetingLength" id="meetingLength" required>
+            <option value="">
+              --Please choose the length of your meeting--
+            </option>
+            <option value="30">30 min</option>
+            <option value="60">60 min</option>
+            <option value="90">90 min</option>
+            <option value="120">120 min</option>
+            <option value="150">150 min</option>
+            <option value="180">180 min</option>
+          </select>
+          <input onclick="useUrl()" type="submit" value="Search times" />
+        </form>
+
+        <div id="checkSuggestionsStart_timesArray"></div>
+
+        <h2 id="headerDayOne"></h2>
+        <ul id="start_times"></ul>
+      </div>
     </div>
+
     <script src="/scripts/index.js"></script>
     <script src="/scripts/namesearch.js"></script>
   </body>
