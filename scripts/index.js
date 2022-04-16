@@ -61,42 +61,38 @@ const header = document.getElementById("headerDayOne");
 
 const list = document.getElementById("start_times");
 
-function useUrl() {
+async function useUrl() {
   const combinedUrl = buildUrl();
   console.log(combinedUrl);
-  fetch(combinedUrl)
-    .then((res) => res.json())
-    .then((meetingData) => {
-      console.log(meetingData);
 
-      for (let i = 0; i < meetingData.suggestions.length; i++) {
-        if (
-          !Array.isArray(meetingData.suggestions) ||
-          !meetingData.suggestions[i].start_times.length
-        ) {
-          document.getElementById(
-            "checkSuggestionsStart_timesArray"
-          ).innerHTML = `No times available, please change your search.`;
-          return;
-        }
+  try {
+    const res = await fetch(combinedUrl);
+    const meetingData = await res.json();
+    console.log(meetingData);
 
-        const h2 = document.createElement("h2");
-        const date = meetingData.suggestions[i].date;
-        h2.textContent = date;
-        list.appendChild(h2);
-        for (
-          let j = 0;
-          j < meetingData.suggestions[i].start_times.length;
-          j++
-        ) {
-          let li = document.createElement("li");
-          let start_times = meetingData.suggestions[i].start_times[j];
-          li.textContent = start_times;
-          list.appendChild(li);
-        }
+    for (let i = 0; i < meetingData.suggestions.length; i++) {
+      if (
+        !Array.isArray(meetingData.suggestions) ||
+        !meetingData.suggestions[i].start_times.length
+      ) {
+        document.getElementById(
+          "checkSuggestionsStart_timesArray"
+        ).innerHTML = `No times available, please change your search.`;
+        return;
       }
-    })
-    .catch((error) => {
-      console.log(error, "There has been an error");
-    });
+
+      const h2 = document.createElement("h2");
+      const date = meetingData.suggestions[i].date;
+      h2.textContent = date;
+      list.appendChild(h2);
+      for (let j = 0; j < meetingData.suggestions[i].start_times.length; j++) {
+        let li = document.createElement("li");
+        let start_times = meetingData.suggestions[i].start_times[j];
+        li.textContent = start_times;
+        list.appendChild(li);
+      }
+    }
+  } catch (error) {
+    console.log(error, "There has been an error");
+  }
 }
