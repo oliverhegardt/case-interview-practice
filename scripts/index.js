@@ -1,22 +1,34 @@
-const timeInputs = document.querySelectorAll(".start, .end");
+let start = document.querySelector(".start");
+let end = document.querySelector(".end");
 
-const roundFunc = (e) => {
-  let x = e.target.value.split(":");
+/*
+  01:00 .. 01:14 -> 01:00
+  01:15 .. 01:44 -> 01:30
+  01:45 .. 01:59 -> 02:00
+*/
+function roundTime(event) {
+  let time = event.target.value.split(":");
+  let hours = parseInt(time[0]);
+  let mins = parseInt(time[1]);
 
-  if (x[1] > 15 && x[1] < 45) {
-    x[1] = "30";
-  } else if (x[1] > 44 && x[1] < 60) {
-    x[0] = x[0] < 9 ? "0" + (parseInt(x[0]) + 1) : parseInt(x[0]) + 1;
-    x[1] = "00";
-  } else {
-    x[1] = "00";
+  if (mins < 15) {
+    mins = 0;
+  } else if (mins < 45) {
+    mins = 30;
+  } else if (mins < 60) {
+    mins = 0;
+    hours = (hours + 1) % 24;
   }
-  e.target.value = x.join(":");
-};
 
-timeInputs.forEach((input) => {
-  input.addEventListener("change", roundFunc);
-});
+  let rounded = [
+    hours.toString().padStart(2, "0"),
+    mins.toString().padStart(2, "0"),
+  ].join(":");
+
+  event.target.value = rounded;
+}
+start.addEventListener("change", roundTime);
+end.addEventListener("change", roundTime);
 
 const employeeIdField1 = document.getElementById("employeeId1");
 
@@ -49,42 +61,38 @@ const header = document.getElementById("headerDayOne");
 
 const list = document.getElementById("start_times");
 
-function useUrl() {
+async function useUrl() {
   const combinedUrl = buildUrl();
   console.log(combinedUrl);
-  fetch(combinedUrl)
-    .then((res) => res.json())
-    .then((meetingData) => {
-      console.log(meetingData);
 
-      for (let i = 0; i < meetingData.suggestions.length; i++) {
-        if (
-          !Array.isArray(meetingData.suggestions) ||
-          !meetingData.suggestions[i].start_times.length
-        ) {
-          document.getElementById(
-            "checkSuggestionsStart_timesArray"
-          ).innerHTML = `No times available, please change your search.`;
-          return;
-        }
+  try {
+    const res = await fetch(combinedUrl);
+    const meetingData = await res.json();
+    console.log(meetingData);
 
-        const h2 = document.createElement("h2");
-        const date = meetingData.suggestions[i].date;
-        h2.textContent = date;
-        list.appendChild(h2);
-        for (
-          let j = 0;
-          j < meetingData.suggestions[i].start_times.length;
-          j++
-        ) {
-          let li = document.createElement("li");
-          let start_times = meetingData.suggestions[i].start_times[j];
-          li.textContent = start_times;
-          list.appendChild(li);
-        }
+    for (let i = 0; i < meetingData.suggestions.length; i++) {
+      if (
+        !Array.isArray(meetingData.suggestions) ||
+        !meetingData.suggestions[i].start_times.length
+      ) {
+        document.getElementById(
+          "checkSuggestionsStart_timesArray"
+        ).innerHTML = `No times available, please change your search.`;
+        return;
       }
-    })
-    .catch((error) => {
-      console.log(error, "There has been an error");
-    });
+
+      const h2 = document.createElement("h2");
+      const date = meetingData.suggestions[i].date;
+      h2.textContent = date;
+      list.appendChild(h2);
+      for (let j = 0; j < meetingData.suggestions[i].start_times.length; j++) {
+        let li = document.createElement("li");
+        let start_times = meetingData.suggestions[i].start_times[j];
+        li.textContent = start_times;
+        list.appendChild(li);
+      }
+    }
+  } catch (error) {
+    console.log(error, "There has been an error");
+  }
 }
