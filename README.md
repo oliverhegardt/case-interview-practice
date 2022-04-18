@@ -21,3 +21,4 @@ The following can be good to know:
 * The system only handles meetings that start every whole and half hours, e.g. 08.00, 08.30, 09.00, etc.
 * You have been given access to a system that contains historical data. – search for dates around the first quarter in 2015 to find results – more updated data will be included in the system when the UI is getting ready for production.
 * An update is planned to system in next month to support actual booking requests. This means that the UI can’t save chosen meetings but shall be structured such that it easily can support it in the near future. This gives you an advantage, as you can choose in what way the data shall be saved. The only limitation is that this will be handled via HTTP in the future.
+* You should complete the UI in 15h-20h.
