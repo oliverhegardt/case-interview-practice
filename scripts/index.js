@@ -8,6 +8,7 @@ let end = document.querySelector(".end");
 */
 function roundTime(event) {
   let time = event.target.value.split(":");
+  console.log(time);
   let hours = parseInt(time[0]);
   let mins = parseInt(time[1]);
 
