@@ -6,8 +6,13 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
+/* html {
+  margin: 0;
   height: 100%;
+} */
+
+body {
+  /* height: 100%; */
   margin: 0;
   display: flex;
   justify-content: center;
@@ -16,8 +21,8 @@ body {
   background: #4caf50;
 }
 .container {
-  width: 50%;
-
+  width: 40%;
+  min-width: 455px;
   background-color: #fff;
   padding: 25px 30px;
   border-radius: 5px;
