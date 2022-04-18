@@ -16,9 +16,16 @@ iframe {
 ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  list-style: none;
+  padding: 0;
 }
 
 li {
-  font-size: small;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 5px 10px;
+  background-color: #eeeeee;
+  border: 1px solid #dddddd;
 }
