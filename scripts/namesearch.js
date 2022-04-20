@@ -1,13 +1,9 @@
 const nameSearchFeild = document.getElementById("nameSearch");
 
-const urlNames = "https://stark-castle-84894.herokuapp.com";
-
-let newUrlNames;
-
 function buildUrlNames() {
-  {
-    newUrlNames = `/employees?q=${nameSearchFeild.value}`;
-  }
+  const urlNames = "https://stark-castle-84894.herokuapp.com";
+
+  const newUrlNames = `/employees?q=${nameSearchFeild.value}`;
 
   console.log(`${urlNames}${newUrlNames}`);
   return `${urlNames}${newUrlNames}`;
