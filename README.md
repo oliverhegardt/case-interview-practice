@@ -8,6 +8,8 @@ Create a UI that can make calls to the existing system to get suggestions for su
 * earliest and latest requested meeting date
 * office hours (e.g. 08-17)
 
+* The system is available at https://stark-castle-84894.herokuapp.com 
+
 * The first endpoint, /employees, is called with a HTTP GET request. To search among the employees the querystring parameter q shall be used (the querystring must be at least 2 characters long). 
 
 * The other endpoint, /suggestions, is called with a HTTP GET request. To find suggestions for possible meetings, the querystring parameter employees (array), fromDate, toDate, officehoursStart, officehoursEnd and meetingLength be used.
