@@ -77,6 +77,7 @@ async function useUrl() {
       }
 
       const list = document.getElementById("start_times");
+
       const h2 = document.createElement("h2");
       const date = meetingData.suggestions[i].date;
       h2.textContent = date;
@@ -90,5 +91,8 @@ async function useUrl() {
     }
   } catch (error) {
     console.log(error, "There has been an error");
+    document.getElementById(
+      "errorStartTimes"
+    ).innerhtml = `There has been an error, please try again.`;
   }
 }

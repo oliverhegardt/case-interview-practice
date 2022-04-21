@@ -9,8 +9,6 @@ function buildUrlNames() {
   return `${urlNames}${newUrlNames}`;
 }
 
-const listNames = document.getElementById("listNames");
-
 function useUrlNames() {
   const combinedUrlNames = buildUrlNames();
   console.log(combinedUrlNames);
@@ -27,6 +25,7 @@ function useUrlNames() {
       }
 
       for (let i = 0; i < meetingData.matches.length; i++) {
+        const listNames = document.getElementById("listNames");
         const li = document.createElement("li");
         const name = meetingData.matches[i].name;
         const id = meetingData.matches[i].id;
@@ -36,5 +35,8 @@ function useUrlNames() {
     })
     .catch((error) => {
       console.log(error, "There has been an error");
+      document.getElementById(
+        "errorNames"
+      ).innerhtml = `There has been an error, please try again.`;
     });
 }
