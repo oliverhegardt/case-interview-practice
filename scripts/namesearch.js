@@ -35,8 +35,7 @@ function useUrlNames() {
     })
     .catch((error) => {
       console.log(error, "There has been an error");
-      document.getElementById(
-        "errorNames"
-      ).innerhtml = `There has been an error, please try again.`;
+      document.getElementById("errorNames").innerHTML =
+        "There has been an error, please try again!";
     });
 }

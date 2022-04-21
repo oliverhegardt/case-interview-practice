@@ -25,6 +25,7 @@
         required
       />
 
+      <div id="errorNames"></div>
       <input
         type="submit"
         id="nameSearch"
@@ -32,7 +33,7 @@
         value="Search names"
       />
       <div id="checkMatchesArray"></div>
-      <div id="errorNames"></div>
+
       <div id="listNames"></div>
 
       <iframe name="frame"></iframe>
@@ -111,11 +112,11 @@
           <option value="150">150 min</option>
           <option value="180">180 min</option>
         </select>
+        <div id="errorStartTimes"></div>
         <input onclick="useUrl()" type="submit" value="Search times" />
       </form>
 
       <div id="checkSuggestionsStart_timesArray"></div>
-      <div id="errorStartTimes"></div>
 
       <ul id="start_times"></ul>
     </div>

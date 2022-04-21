@@ -91,8 +91,7 @@ async function useUrl() {
     }
   } catch (error) {
     console.log(error, "There has been an error");
-    document.getElementById(
-      "errorStartTimes"
-    ).innerhtml = `There has been an error, please try again.`;
+    document.getElementById("errorStartTimes").innerHTML =
+      "There has been an error, please try again!";
   }
 }
