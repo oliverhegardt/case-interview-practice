@@ -1,5 +1,5 @@
-let start = document.querySelector(".start");
-let end = document.querySelector(".end");
+const start = document.querySelector(".start");
+const end = document.querySelector(".end");
 
 /*
   01:00 .. 01:14 -> 01:00
@@ -7,7 +7,7 @@ let end = document.querySelector(".end");
   01:45 .. 01:59 -> 02:00
 */
 function roundTime(event) {
-  let time = event.target.value.split(":");
+  const time = event.target.value.split(":");
   console.log(time);
   let hours = parseInt(time[0]);
   let mins = parseInt(time[1]);
@@ -21,7 +21,7 @@ function roundTime(event) {
     hours = (hours + 1) % 24;
   }
 
-  let rounded = [
+  const rounded = [
     hours.toString().padStart(2, "0"),
     mins.toString().padStart(2, "0"),
   ].join(":");
