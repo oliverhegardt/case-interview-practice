@@ -10,9 +10,11 @@ Create a UI that can make calls to the existing system to get suggestions for su
 
 * The system is available at https://stark-castle-84894.herokuapp.com 
 
-* The first endpoint, /employees, is called with a HTTP GET request. To search among the employees the querystring parameter q shall be used (the querystring must be at least 2 characters long). 
+* The first endpoint, /employees, is called with a HTTP GET request. To search among the employees the querystring parameter q shall be used (the querystring must be at least 2 characters long). Example: Request:
+GET /employees?q=An
 
-* The other endpoint, /suggestions, is called with a HTTP GET request. To find suggestions for possible meetings, the querystring parameter employees (array), fromDate, toDate, officehoursStart, officehoursEnd and meetingLength be used.
+* The other endpoint, /suggestions, is called with a HTTP GET request. To find suggestions for possible meetings, the querystring parameter employees (array), fromDate, toDate, officehoursStart, officehoursEnd and meetingLength be used. Example: Request:
+GET /suggestions?employees=248086622848468681706182205280565990732&employees=246529435182890502 343890064029443600078&fromDate=2015-01-20&toDate=2015-01- 22&officehoursStart=8%3A00&officehoursEnd=17%3A00&meetingLength=60
 
 The following can be good to know:
 
