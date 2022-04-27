@@ -64,12 +64,18 @@ async function useUrl() {
     const res = await fetch(combinedUrl);
     const meetingData = await res.json();
     console.log(meetingData);
+    if (
+      !Array.isArray(meetingData.suggestions) ||
+      !meetingData.suggestions.length
+    ) {
+      document.getElementById(
+        "checkSuggestionsStart_timesArray"
+      ).innerHTML = `No times available, please change your search.`;
+      return;
+    }
 
     for (let i = 0; i < meetingData.suggestions.length; i++) {
-      if (
-        !Array.isArray(meetingData.suggestions) ||
-        !meetingData.suggestions[i].start_times.length
-      ) {
+      if (!meetingData.suggestions[i].start_times.length) {
         document.getElementById(
           "checkSuggestionsStart_timesArray"
         ).innerHTML = `No times available, please change your search.`;
