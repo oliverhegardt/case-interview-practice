@@ -6,11 +6,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* html {
-  margin: 0;
-  height: 100%;
-} */
-
 body {
   /* height: 100%; */
   margin: 0;
@@ -56,10 +51,6 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #45a049;
 }
-
-/* .details {
-  padding: 200px 0px;
-} */
 
 iframe {
   display: none;
