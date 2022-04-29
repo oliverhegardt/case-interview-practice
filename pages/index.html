@@ -12,8 +12,11 @@
       <h1 class="title">Meeting planner</h1>
 
       <label class="details" for="nameSearch"
-        >Search for employee ID with the first two letters in your name, the
-        first letter needs to be a capital letter.</label
+        ><br />Search for an employee ID with the first two letters in your
+        name, the first letter needs to be a capital letter. <br />
+        <br />Copy the employee ID and paste it in the Employee ID section. Fill
+        in the rest of the meeting deatils to get suggestions for suitable
+        meeting times.</label
       >
       <input
         type="text"
@@ -97,7 +100,11 @@
           <option value="180">180 min</option>
         </select>
 
-        <input onclick="useUrl()" type="submit" value="Search times" />
+        <input
+          onclick="useUrl()"
+          type="submit"
+          value="Search for sutiable meeting times"
+        />
       </form>
       <div id="errorStartTimes"></div>
       <div id="checkSuggestionsStart_timesArray"></div>
